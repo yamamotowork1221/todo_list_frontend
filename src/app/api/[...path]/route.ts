@@ -4,8 +4,7 @@ import { env } from '@/config/env';
 const BACKEND_URL = env.BACKEND_URL
 
 export async function handler(req: NextRequest) {
-  const path = req.nextUrl.pathname.replace('/api/', '')
-  const url = `${BACKEND_URL}/${path}`
+  const url = `${BACKEND_URL}${req.nextUrl.pathname}`
 
   const fetchOptions: RequestInit = {
     method: req.method,
