@@ -4,8 +4,8 @@ services:
 
     routes:
       - type: rewrite
-        source: /api/v1/(.*)
-        destination: https://todo-list-backend-hjk1.onrender.com/api/v1/$1
+        source: /api/(.*)
+        destination: https://todo-list-backend-hjk1.onrender.com/api/$1
 
       - type: rewrite
         source: /(.*)
