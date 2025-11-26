@@ -16,8 +16,9 @@ export async function handler(req: NextRequest) {
     }
 
     const res = await fetch(url, fetchOptions)
-    const data = await res.text()
-    return new NextResponse(data, { status: res.status })
+    const response = new NextResponse(await res.text(), { status: res.status })
+    res.headers.get('set-cookie') && response.headers.set('set-cookie', res.headers.get('set-cookie')!)
+    return response
 }
 
 export const GET = handler
